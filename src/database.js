@@ -4,7 +4,6 @@ const { TOPIC } = require('./models/topic');
 const { ENDPOINT } = require('./models/endpoint');
 const { COMMUNITY } = require('./models/communities');
 const { POST } = require('./models/post');
-const { USER } = require('./models/user');
 const { uri, database, options } = mongooseConfig;
 
 let connection;
@@ -92,14 +91,6 @@ async function getDiscoveryHosts() {
     });
 }
 
-async function getUserByPID(PID) {
-    verifyConnected();
-
-    return USER.findOne({
-        pid: PID
-    });
-}
-
 async function getServerConfig() {
     verifyConnected();
     return ENDPOINT.findOne({
@@ -117,6 +108,5 @@ module.exports = {
     getPostsByCommunity,
     getPostsByCommunityKey,
     getPostByID,
-    getUserByPID,
     getServerConfig
 };

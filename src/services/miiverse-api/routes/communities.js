@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const database = require('../../../database');
 const comPostGen = require('../../../util/CommunityPostGen');
-const processHeaders = require('../../../util/authentication');
+const processHeaders = require('../../../util/processHeaders');
 
 /* GET post titles. */
 router.get('/0/posts', function (req, res) {
